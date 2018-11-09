@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vclab.shipcrew.Fragment.AtlasMapFragment;
+import com.example.vclab.shipcrew.Fragment.ListNotificationFragment;
 import com.example.vclab.shipcrew.Fragment.ManualFragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity
 
     private Fragment AtlasMap;
     private Fragment Manual;
+    private Fragment NotificationList;
 
     private DatabaseReference mDatabase;
 
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity
         // Fragment change
         AtlasMap = new AtlasMapFragment();
         Manual = new ManualFragment();
+        NotificationList = new ListNotificationFragment();
 
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -126,14 +129,15 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             fragment = AtlasMap;
-            title = "선박 내부 지도";
+            title = "건물 내부 지도";
         } else if (id == R.id.nav_gallery) {
-
+            fragment = NotificationList;
+            title = "알람 목록";
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
             fragment = Manual;
-            title = "승무원 매뉴얼";
+            title = "소방관 매뉴얼";
 
         } else if (id == R.id.nav_share) {
 
@@ -145,7 +149,7 @@ public class MainActivity extends AppCompatActivity
             editor.clear();
             editor.commit();
 
-            Toast.makeText(this, "로그아웃.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "로그아웃", Toast.LENGTH_SHORT).show();
             finish();
         }
 

@@ -39,7 +39,7 @@ public class ListNotificationFragment extends Fragment implements View.OnClickLi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_manual, null);
+        rootView = inflater.inflate(R.layout.fragment_notification_list, null);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -66,11 +66,12 @@ public class ListNotificationFragment extends Fragment implements View.OnClickLi
 
         public ShareRecyclerAdapter() {
             positionModels = new ArrayList<>();
-            FirebaseDatabase.getInstance().getReference().child("recipe").addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference().child("userPoint").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // 처음 넘어오는 데이터 // ArrayList 값.
                     positionModels.clear();
+
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         PositionModel positionModel = snapshot.getValue(PositionModel.class);
 

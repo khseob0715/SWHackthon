@@ -24,10 +24,10 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SHIP CREW"
+            android:layout_marginBottom="10dp"
+            android:text="FIRE FIGHTER"
             android:textAlignment="center"
             android:textColor="#ffffff"
-            android:layout_marginBottom="10dp"
             android:textSize="30dp"
             android:textStyle="bold" />
 
