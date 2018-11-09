@@ -301,7 +301,7 @@ public class AtlasMapFragment extends Fragment implements View.OnClickListener, 
 
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-                final PositionModel positionModel = new PositionModel(userlat, userlon, MainActivity.UserName, simpleDateFormat.format(today));
+                final PositionModel positionModel = new PositionModel(userlat, userlon, MainActivity.UserName, ts, simpleDateFormat.format(today));
 
                 mDatabase.child("userPoint").child(ts).setValue(positionModel);
             }
